@@ -4,8 +4,18 @@ The ansible operator for deploying Amlen systems.
 
 ## Release process
 
-The release process is currently a bit awkward what needs to happen is:
+The release process is currently simple because we don't have anything (e.g. testing infrastructure) pulling in alpha versions:
 
+1. Ensure the operator versions are set correctly for the release you want to do with a commit like (and ensure the build completes successfully):
+   https://github.com/eclipse/amlen/commit/01a47da923c3b4f31d16b394f3df447e9e8b5788
+
+2. Tag the build of the operator as `v<version>` e.g. `v1.1.2`
+
+3. Tag the build of the operator bundle as the version with no preceding v e.g. `1.1.2`
+
+4. Update the operator versions in Amlen main branch ready to the next release
+
+The older process (that would be needed if we had testing infrastructure folloeing thhe the main branch is))
 push a change that moves the version from the current alpha version to the actual version, ie if the version is 1.0.3-a then submit a PR
 to change it to version 1.0.3
 
